@@ -220,4 +220,4 @@ cnn.on('ready', function () {
     }
   );
   
-// cronjob.startJob('first_job');
+cronjob.startJob('first_job');
