@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/angapp1.js"></script>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+<nav id="navMenu" class="navbar navbar-default" style="height: 1px;"></nav>
+<div id="cartval" hidden><%= cart %></div>
+<div class="col-md-6 col-md-offset-3" style="padding: 100px">
+    <center><img src="/images/eBay_logo.png" width= "115", height= "80"></center>
+     <div class="panel panel-default">
+    <div class="panel-heading">   
+    <center><h1>Credit Card Details</h1></center>
+    </div>
+    <div class="panel-body">
+    <form action="/checkvalid" method="post">
+  <label for ='cardnum'> Enter the Credit Card Number:</label> <input type="number" name="cardnum" id="cardnum" class="form-control"><br>
+  <label for ='valid'> Valid thru:</label> <input type="text" name="valid" id="valid" placeholder="mm/yyyy" class="form-control"> <br>
+   <label for ='cvv'>Enter CVV:</label> <input type="number" name="cvv" id="cvv" class="form-control"> <br>
+   <center><input type="submit" name="submit" value="Submit" class="btn btn-default"></center>
+</form>
+</div>
+    </div>
+<script type="text/javascript" src="./js/nav_bar.js"></script>
+  </body>
+</html>
+
+
+ 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/angapp1.js"></script>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <div class="col-md-6 col-md-offset-3" style="padding: 100px">
+    <center><img src="/images/eBay_logo.png" width= "170", height= "80"></center>
+     <ul class="nav nav-tabs login-tabs">
+  <li class="{{activeOwner}}"><a href="/login">Sign in</a></li>
+  <li class="{{activeAgent}}"><a href="/signup">Register</a></li>
+</ul>
+    <form method="post" action="/signinuser">
+    <center><input type="text" name="email" id="email" placeholder="Email" class="form-control"><br></center>
+    <center><input type="Password" name="password" id="Password" placeholder="Password" class="form-control"><br></center>
+    <center><input type="submit" name="Login" value="Sign in" class="btn btn-primary btn-lg"><br><br></center>
+    <center><%= errormessage %></center>
+    </form>
+    </div>
+     </body>
+     </html>

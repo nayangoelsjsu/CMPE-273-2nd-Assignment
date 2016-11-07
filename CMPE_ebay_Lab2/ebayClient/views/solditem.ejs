@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="ebayapp">
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/controller.js"></script>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+  </head>
+  <body>
+<nav id="navMenu" class="navbar navbar-default" style="height: 1px;"></nav>
+    <h1>Sold Item</h1>
+    <div id="cartval" hidden><%= cart %></div>
+    <% for(var i=items.length-1; i>=0; i--) {%>
+<div class="container col-md-3 col-md-offset-0">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+    <strong>&nbsp&nbsp&nbsp
+    <% var link="/itempage?id="+items[i].itemid %>
+   <span class="card-title"><a href=<%= link %> ><%= items[i].name %></a></span>
+  <div class="card-content">
+  <p><%= items[i].type %></p>
+   <p>$ <%= items[i].price %></p>
+   <p><%= items[i].quantity %> pieces sold</p>
+   <p>Baught by <%= items[i].buyer %> </p>
+    </strong>
+   </div>
+   </div>
+   </div>
+  </div>
+    </div>
+    <% } %>
+    <script type="text/javascript" src="./js/nav_bar.js"></script>
+  </body>
+</html>

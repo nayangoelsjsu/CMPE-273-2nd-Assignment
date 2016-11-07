@@ -1,0 +1,286 @@
+
+.dropbtn {
+    /*background-color: #4CAF50;*/
+    color: white;
+    padding: 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    /*background-color: #3e8e41;*/
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-clip: padding-box;
+}
+.card span.card-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card .card-content {
+  padding: 16px;
+  border-radius: 0 0 2px 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+.card .card-content p {
+  margin: 0;
+  color: inherit;
+}
+.card .card-content span.card-title {
+  line-height: 48px;
+}
+.card .card-action {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 16px;
+}
+.card .card-action a {
+  color: #ffab40;
+  margin-right: 16px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+.card .card-action a:hover {
+  color: #ffd8a6;
+  text-decoration: none;
+}
+
+
+
+
+
+header{
+  padding: 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+*{
+  box-sizing: border-box;
+}
+
+a, input, button {
+  transition: background 0.3s ease;
+}
+html,body {
+  height: 100%;
+}
+
+body{
+  padding-bottom: 60px;
+  overflow: auto;
+}
+
+.breadcrumb{
+  position: absolute;
+    text-align: left;
+    background: white;
+}
+.error{
+  color:red;
+  margin:5px;
+}
+main{
+  padding-bottom: 60px;
+  position: relative;
+  min-height: 700px;
+}
+.margin-top-0{
+  margin-top: 0;
+}
+
+#footer {
+  margin-top: 10px;
+  color: #B9B4B4;
+    border-top: 1px solid #ECE9E9;
+    padding: 9px;
+  position: absolute;
+  bottom: 0;right:0;left:0;
+  background: white;
+
+}
+
+.title {
+    padding-right: 20px;
+    color: #2F753C;
+}
+
+#content {
+  text-align: center;
+  padding:10px;
+}
+
+.heading {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 300;
+}
+
+h2.heading {
+
+}
+.login-tabs {
+    width: 400px;
+    margin: 38px auto;
+    margin-bottom: 0;
+}
+.login-tabs li {
+  width:200px;
+}
+
+form{
+  width: 400px;
+    margin: 0 auto;
+    border: 1px solid #eaeaea;
+    padding: 20px;
+  border-top:0;
+  border-radius: 2px;
+}
+
+.shadow {
+  box-shadow: 0 0 5px 1px #eaeaea;
+}
+form p{
+  margin-top:10px;
+  text-align: left;
+}
+
+form .btn {
+  margin: 10px auto;
+  width: 100%;
+    padding: 10px 16px;
+    font-size: 16px;
+    margin-top: 16px;
+
+}
+
+.signup-action {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+a.owner-actions{
+  display: inline-block;
+    background: #02A6D8;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 2px;
+    text-decoration: none;
+    margin:8px;
+}
+.owner-actions:hover{
+  background:#0C7DA0;
+}
+.owner-container{
+  margin-top: 48px;
+}
+.logout{
+  text-align: right;
+}
+.logout a{
+      position: relative;
+    left: 204px;
+    font-size: 16px;
+}
+
+.health-logo{
+    width: 69px;
+    position: relative;
+    top: -10px;
+}
+.owner-actions .glyphicon{
+  margin-right: 7px;
+}
+
+
+.customer-form{
+  margin-top:40px;
+  border-top:1px solid #eaeaea;
+}
+.customer-form--lg{
+  width:900px;
+}
+
+.radio{
+  text-align: left;
+}
+.radio .radio-inline {
+  padding-left:0;
+}
+#MaritalStatus, #Gender, .inline-ul {
+  padding-left:18px;
+}
+
+#MaritalStatus li, #Gender li, .inline-ul li {
+  display: inline-block;
+  margin:5px;
+  text-align: left;
+}
+#MaritalStatus li:nth-child(2), #Gender li:nth-child(2), .inline-ul li:nth-child(2){
+  margin-left:27px;
+}
+#MaritalStatus label, #Gender label, .inline-ul label{
+  padding-left:0;
+}
+
+form .next-btn{
+  width:300px;
+}
+
+.table-container {
+  margin-top:30px;
+}
+.table-container--small{
+  max-width: 617px;
+}
+.mt20{
+  margin-top:20px;
+}
+
+table.table th{
+  font-weight: 500;
+  color: rgba(0,0,0,0.6);
+}
+

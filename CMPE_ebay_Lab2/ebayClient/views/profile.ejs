@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app= "ebayapp">
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/controller.js"></script>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+  </head>
+  <body>
+<nav id="navMenu" class="navbar navbar-default" style="height: 1px;"></nav>
+<div ng-controller="ctrl1">
+<div id="cartval" hidden><%= cart %></div>
+<div class="col-md-6 col-md-offset-3" style="padding: 100px">
+<div class="panel panel-default">
+    <div class="panel-heading">   
+ <center><input type="button" name="updateprofile" id="updateprofile" ng-click="updateform()" value="Update Profile" class="btn btn-warning">
+    <a href="/purchaseditem"><button class="btn btn-danger">Purchased Items</button></a>
+    <a href="/solditem"><button class="btn btn-danger">Sold Items</button></a></center> 
+    <h1>Profile</h1>
+    </div>
+    <div class="panel-body">
+    <label>First Name </label> <%= fname %><br>
+    <label>Last Name </label> <%= lname %><br>
+    <label>Email ID </label> <%= email %><br>
+
+      <div ng-if="updateflag!=1 && bday!=null">
+        <label>Birthday</label><span> {{bday}}</span>
+      <br>
+      </div>
+      <div ng-if="updateflag!=1 && phone!=null">
+        <label>Phone</label><span> {{phone}}</span>
+      <br>
+      </div>
+      <div ng-if="updateflag!=1 && address!=null">
+        <label>Adress</label><span> {{address}}</span>
+      <br>
+      </div>
+      <div ng-if="updateflag!=1 && city!=null">
+        <label>City</label><span> {{city}}</span>
+      <br>
+      </div>
+      <div ng-if="updateflag!=1 && state!=null">
+        <label>State</label><span>{{state}}</span>
+      <br>
+      </div>
+      <div ng-if="updateflag!=1 && zip!=null">
+        <label>ZIP</label><span>{{zip}}</span>
+      </div>
+      <div ng-if="updateflag==1">
+        <label>Birthday</label><input type="text" name="birthday" id="birthday" ng-model="bday" class="form-control">
+        <label>Phone</label><input type="Number" name="phone" id="phone" ng-model="phone" class="form-control">
+        <label>Address</label><input type="text" name="address" id="address" ng-model="address" class="form-control">
+        <label>City</label><input type="text" name="city" id="city" ng-model="city" class="form-control">
+        <label>State</label><input type="text" name="state" id="state" ng-model="state" class="form-control">
+        <label>ZIP</label><input type="Number" name="zip" id="zip" ng-model="zip" class="form-control">
+
+        <input type="button" name="update" id="update" value="Update" ng-click="updateit(bday,phone,address,city,state,zip)" class="btn btn-primary">
+      </div>
+    </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+      var emails="<%= email %>";
+      var phones= "<%= phonenum %>";
+      var bdays="<%= birthday %>";
+      var addresss= "<%= address %>";
+      var citys="<%= city %>";
+      var states= "<%= state %>";
+      var zips="<%= zip %>";
+    </script>
+   <script type="text/javascript" src="./js/nav_bar.js"></script>
+
+  </body>
+</html>

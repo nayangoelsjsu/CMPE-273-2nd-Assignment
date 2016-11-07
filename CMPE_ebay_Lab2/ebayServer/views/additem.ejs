@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/angapp1.js"></script>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+<nav id="navMenu" class="navbar navbar-default" style="height: 1px;"></nav><div id="cartval" hidden><%= cart %></div>   
+
+<div class="col-md-6 col-md-offset-3" style="padding: 100px">
+     <div class="panel panel-default">
+    <div class="panel-heading">
+    <center><h1>Add Item</h1></center>
+    </div>
+     <div class="panel-body">
+    <form method="post" action="/regitem">
+   <label>Item Name</label> <input type="text" name="name" id="name" class="form-control"><br>
+   <label>Auction/Fixed Price</label><br>
+   <select name="auction" class="btn btn-default" style="width: 405px">
+  <option value="Auction">Auction</option>
+  <option value="Fixed">Fixed</option>
+   </select>
+    <br><label>Item Description</label> <input type="text" name="description" id="description" class="form-control"><br>
+    <label>Item Price ($) </label> <input type="text" name="price" id="price" class="form-control"><br>
+    <label>Item Quantity</label> <input type="text" name="quantity" id="quantity" class="form-control"><br>
+    <label>Type</label><input type="text" name="type" id="type" class="form-control"><br>
+    <center><input type="submit" name="submit" value="Submit" class="btn btn-default"></center>
+    </form>
+    </div>
+    </div>
+        <script type="text/javascript" src="./js/nav_bar.js"></script>
+  </body>
+</html>

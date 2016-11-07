@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app="ebayapp">
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/controller.js"></script>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+  </head>
+  <body>
+<nav id="navMenu" class="navbar navbar-default" style="height: 1px;"></nav>
+    <h1>Your Items</h1>
+    <div id="cartval" hidden><%= cart %></div>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var total=0 %>
+                  <% for(var i=items.length-1; i>=0; i--) {%>
+                    <tr>
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <div class="media-body">
+                                <% var itemlink="/itempage?id="+items[i]._id %>
+                                <h4 class="media-heading"><a href=<%= itemlink %>><%= items[i].name %></a></h4>
+                                <h5 class="media-heading"> by <%= items[i].uid %></h5>
+                                <% var availableid= "available"+items[i]._id %>
+                                <div id=<%= availableid %> style="display: none;"><%= items[i].available %></div>
+                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <% var quantid= "quant"+items[i]._id %>
+                        <input type="email" class="form-control" id= <%= quantid %> value=<%= items[i].quantity %>>
+                        </td>
+                        <% var priceid= "price"+items[i]._id %>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>$<span id= <%= priceid %>><%= items[i].price %></span></strong></td>
+                        <% var prodtotalid= "prodtotal"+items[i]._id %>
+                        <% var prodtotal= parseFloat(items[i].price) * parseInt(items[i].quantity) %>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>$<span id=<%= prodtotalid %>><%= prodtotal %></span></strong></td>
+                       <td class="actions" data-th="">
+                       <% var reflink="/cartrefresh?id="+items[i]._id %>
+                       <% var dellink="/cartdelete?id="+items[i]._id %>
+                       <% total= parseFloat(total)+ parseFloat(prodtotal) %>
+              <button class="btn btn-info btn-sm" id= <%= items[i]._id %> onclick='refresh(this.id)'><span class="glyphicon glyphicon-refresh"></span></button>
+              <a href=<%= dellink %> ><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></a>                
+              </td>
+                    </tr>
+                      <% } %>
+                    
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>$ <span id="total"><%= total %></span></strong></h3></td>
+                        <td>   </td>
+                    </tr>
+                    <tr>
+                        <td> <h5 id="message"></h5>  </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <a href="/home"><button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                        </button></a></td>
+                        <td>
+                        <a href="/cardvalidate"><button type="button" class="btn btn-success">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript" src="./js/nav_bar.js"></script>
+    <script type="text/javascript">
+        function refresh (n) {
+            var quantid= "quant"+n;
+            var priceid= "price"+n;
+            var prodtotalid=  "prodtotal"+n;
+            var availableid= "available"+n;
+            var available= document.getElementById(availableid).innerHTML;
+            var total= document.getElementById('total').innerHTML;
+            console.log(quantid+priceid+prodtotalid);
+            var quant= document.getElementById(quantid).value;
+            quant= parseInt(quant);
+            available= parseInt(available);
+            if(quant > available){
+                console.log("quant"+quant);
+                console.log("available"+available);
+                document.getElementById("message").innerHTML= "The product quantity is more than availability. Kindly enter appropriate quantity";
+
+            }
+            
+            else {
+                document.getElementById("message").innerHTML= "";
+                var price= document.getElementById(priceid).innerHTML;
+                var value1= document.getElementById(prodtotalid).innerHTML;
+                document.getElementById(prodtotalid).innerHTML= parseInt(quant) * parseFloat(price) ;
+                var value2= document.getElementById(prodtotalid).innerHTML;
+                document.getElementById('total').innerHTML= parseFloat(total) + parseFloat(value2) - parseFloat(value1);
+                var xhttp = new XMLHttpRequest();
+                var url="/addtosession?id="+n+"&quant="+quant; 
+                console.log("URL:"+ url);
+                xhttp.open("GET", url, true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send();
+            }
+        }
+    </script>
+  </body>
+</html>

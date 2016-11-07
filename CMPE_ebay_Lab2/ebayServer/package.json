@@ -1,0 +1,25 @@
+{
+  "name": "ebay",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.4.2",
+    "bcrypt": "^0.8.7",
+    "ejs": "*",
+    "express": "3.2.6",
+    "express-session": "^1.14.1",
+    "express-validator": "^2.20.10",
+    "http": "0.0.0",
+    "mocha": "^3.1.2",
+    "morgan": "^1.7.0",
+    "mysql": "^2.11.1",
+    "node-cron-job": "^0.2.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.75.0",
+    "winston": "^2.2.0"
+  }
+}

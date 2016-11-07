@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="ebayapp">
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/controller.js"></script>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+  </head>
+  <body>  
+<nav id="navMenu" class="navbar navbar-default" style="height: 1px;"></nav>
+<div id="cartval" hidden><%= cart %></div> 
+<div class="col-md-6 col-md-offset-3" style="padding: 100px">
+     <div class="panel panel-default">
+    <div class="panel-heading">
+    <center><h1><%= name %></h1></center>
+    </div>
+     <div class="panel-body">
+    <h3><%= description %></h3>
+    <h4>Price: $ <strong><%= price%></strong></h4>
+   <h4>Seller: <strong><%= uid %><br></strong> </h4>
+   <% var link="/addtocart?id="+id %>
+   <% if (auction== 'Fixed') { %>
+    <a href=<%= link %> class="btn btn-primary">Add to Cart</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <% } else { %>
+   <h4>Current Bid: <label>$ <%= max %></label></h4>
+      <input type="text" name="bid" id="bid" class="form-control"><br>
+    <center><button class="btn btn-primary" onclick="placebid()">Submit Bid</button></center><br>
+    <p id="message"></p>
+       <% } %>
+       </div>
+       </div>
+       </div>
+    <script type="text/javascript" src="./js/nav_bar.js"></script>
+    
+    <script type="text/javascript">
+    function placebid () {
+     var bid= document.getElementById('bid').value;
+     bid= parseInt(bid);
+     var itemid= "<%= id %>";
+     var max= "<%= max %>";
+     console.log(max);
+     max= parseInt(max);
+     if(bid<=max){
+      document.getElementById('message').innerHTML= "Bid Should be greater than"+max;
+     }
+     else{
+     var bidlink= "/bidplace?bid="+bid+"&itemid="+itemid;
+     var xhttp= new XMLHttpRequest();
+     console.log("URL:"+bidlink);
+                xhttp.open("GET", bidlink, true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send();
+                // document.getElementById('message').innerHTML= "Bid Placed";
+                alert("Bid Placed");
+                location.reload();
+              }
+    }
+    </script>
+  </body>
+</html>
