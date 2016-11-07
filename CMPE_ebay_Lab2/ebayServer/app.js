@@ -25,6 +25,7 @@ var express = require('express')
 mongoose.connect('mongodb://localhost/ebay?pool=100');
 var cnn = amqp.createConnection({ host: "localhost", port: 5672 }); 
 var app = express();
+cronjob.setJobsPath(__dirname + '/public/js/jobs.js');
 
 
 cnn.on('ready', function () {
